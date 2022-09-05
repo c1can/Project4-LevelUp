@@ -1,0 +1,118 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Telex', sans-serif;
+    background-image: linear-gradient(to right bottom, #2e55ac, #3b56ad, #4657ad, #4f58ae, #5859ae, #5f5aae, #655bae, #6b5cae, #725dae, #785eae, #7e60ae, #8461ae);
+}
+main {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+h1 {
+    margin: 2rem 0rem;
+    font-size: 5rem;
+    color: #fff;
+}
+.cards {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px);
+    place-content: center;
+    gap: 2rem;
+}
+@media (max-width: 600px) {
+    body {
+        height: auto;
+    }
+    .cards {
+        grid-template-columns: repeat(auto-fill, 400px);
+    }
+}
+.card {
+    height: 300px;
+    position: relative;
+    background-image: linear-gradient(to right bottom, #2e55ac, #4861b0, #5d6eb5, #6f7bb9, #8088bd);
+    border: 5px solid white;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1rem;
+    color: #fff;
+   }
+   
+   .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    background-color: rgba(80, 64, 44, 0);
+    transition: background-color 1s;
+   }
+   
+   .card-info {
+    bottom: 60px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+   }
+   
+   .card-bio {
+    text-align: center;
+    transform: translate(100%,40%);
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+   }
+   
+   .card-bio p {
+    font-size: 1.7rem;
+    line-height: 1.5em;
+    font-weight: bold;
+   }
+   
+   
+   /*Text*/
+   .title {
+    font-size: 1.7rem;
+    font-weight: bold;
+   }
+   
+   .title::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    margin: 0 auto 4%;
+    background-color: #fff;
+   }
+   
+   .subtitle {
+    font-weight: 400;
+    line-height: 1em;
+   }
+   
+   
+   
+   /*Hover*/
+   .card:hover::before {
+    background-color: rgba(80, 64, 44, 0.25);
+   }
+   
+   .card:hover .card-info {
+    transform: translateX(-100%);
+   }
+   
+   .card:hover .card-bio {
+    transform: translate(0,40%);
+    opacity: 1;
+   }
